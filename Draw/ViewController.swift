@@ -3,10 +3,11 @@ import UIKit
 class ViewController: UIViewController {
     
     let canvas = Canvas()
+    var buttonsColors: [UIButton]!
     
     let undoButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Undo", for: .normal)
+        button.setTitle("Atrás", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
         button.addTarget(self, action: #selector(handleUndo), for: .touchUpInside)
         return button
@@ -20,7 +21,7 @@ class ViewController: UIViewController {
     
     let clearButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Clear", for: .normal)
+        button.setTitle("Borrar", for: .normal)
         button.titleLabel?.font = .boldSystemFont(ofSize: 14)
         button.addTarget(self, action: #selector(handleClear), for: .touchUpInside)
         return button
@@ -30,43 +31,71 @@ class ViewController: UIViewController {
         canvas.clear()
     }
     
-    let yellowButton: UIButton = {
+    let greenButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .systemPink
-        button.layer.borderWidth = 1
+        button.backgroundColor = .green
         button.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
         return button
     }()
     
-    let redButton: UIButton = {
+    let yellowButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .blue
-        button.layer.borderWidth = 1
+        button.backgroundColor = .yellow
+        button.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
+        return button
+    }()
+    
+    let blackButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .black
         button.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
         return button
     }()
     
     let blueButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .purple
-        button.layer.borderWidth = 1
+        button.backgroundColor = .blue
         button.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
         return button
     }()
     
+    let purpleButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .purple
+        button.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
+        return button
+    }()
+    
+    let pinkButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .systemPink
+        button.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
+        return button
+    }()
     @objc fileprivate func handleColorChange(button: UIButton) {
+        buttonsColors.map{
+            $0.layer.borderWidth=0
+        }
+        button.layer.borderWidth = 5
+        if(button.backgroundColor == .black){
+            button.layer.borderColor = UIColor.gray.cgColor
+        }
+        else{
+            button.layer.borderColor = UIColor.black.cgColor
+        }
         canvas.setStrokeColor(color: button.backgroundColor ?? .black)
     }
     
     let slider: UISlider = {
         let slider = UISlider()
-        slider.minimumValue = 1
-        slider.maximumValue = 10
+        slider.minimumValue = 25
+        slider.maximumValue = 50
         slider.addTarget(self, action: #selector(handleSliderChange), for: .valueChanged)
         return slider
     }()
     
     @objc fileprivate func handleSliderChange() {
+        
         canvas.setStrokeWidth(width: slider.value)
     }
     
@@ -81,9 +110,10 @@ class ViewController: UIViewController {
         
         setupLayout()
     }
-    
+
     fileprivate func setupLayout() {
-        let colorsStackView = UIStackView(arrangedSubviews: [yellowButton, redButton, blueButton])
+        buttonsColors = [blackButton,yellowButton, pinkButton, blueButton, greenButton, ]
+        let colorsStackView = UIStackView(arrangedSubviews: buttonsColors)
         colorsStackView.distribution = .fillEqually
         
         let stackView = UIStackView(arrangedSubviews: [

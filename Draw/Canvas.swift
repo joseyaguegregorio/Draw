@@ -4,7 +4,7 @@ class Canvas: UIView {
     
     // public function
     fileprivate var strokeColor = UIColor.black
-    fileprivate var strokeWidth: Float = 1
+    fileprivate var strokeWidth: Float = 15
     
     func setStrokeWidth(width: Float) {
         self.strokeWidth = width
