@@ -1,19 +1,5 @@
 import UIKit
 
-
-
-
-
-//
-//  ViewController.swift
-//  DrawSomethingLBTA
-//
-//  Created by Brian Voong on 1/1/19.
-//  Copyright © 2019 Brian Voong. All rights reserved.
-//
-
-import UIKit
-
 class ViewController: UIViewController {
     
     let canvas = Canvas()
@@ -46,7 +32,7 @@ class ViewController: UIViewController {
     
     let yellowButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .yellow
+        button.backgroundColor = .systemPink
         button.layer.borderWidth = 1
         button.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
         return button
@@ -54,7 +40,7 @@ class ViewController: UIViewController {
     
     let redButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .red
+        button.backgroundColor = .blue
         button.layer.borderWidth = 1
         button.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
         return button
@@ -62,7 +48,7 @@ class ViewController: UIViewController {
     
     let blueButton: UIButton = {
         let button = UIButton(type: .system)
-        button.backgroundColor = .blue
+        button.backgroundColor = .purple
         button.layer.borderWidth = 1
         button.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
         return button
