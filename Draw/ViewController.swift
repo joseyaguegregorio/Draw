@@ -97,7 +97,8 @@ class ViewController: UIViewController {
         buttonsColors.map{
             $0.layer.borderWidth=0
         }
-        button.layer.borderWidth = 5
+        button.layer.borderWidth = 2
+        
         if(button.backgroundColor == .black){
             button.layer.borderColor = UIColor.gray.cgColor
         }
