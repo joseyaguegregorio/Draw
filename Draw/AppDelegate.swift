@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  iOS9Sampler
-//
-//  Created by Shuichi Tsutsumi on 2015/06/10.
-//  Copyright © 2015 Shuichi Tsutsumi. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain
