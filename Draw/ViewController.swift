@@ -59,6 +59,13 @@ class ViewController: UIViewController {
         return button
     }()
     
+    let redButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .red
+        button.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
+        return button
+    }()
+    
     let purpleButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .purple
@@ -69,6 +76,13 @@ class ViewController: UIViewController {
     let pinkButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .systemPink
+        button.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
+        return button
+    }()
+    
+    let brownButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .brown
         button.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
         return button
     }()
@@ -112,13 +126,15 @@ class ViewController: UIViewController {
     }
 
     fileprivate func setupLayout() {
-        buttonsColors = [blackButton,yellowButton, pinkButton, blueButton, greenButton, ]
+        buttonsColors = [blackButton,yellowButton, pinkButton,purpleButton,redButton,brownButton, blueButton, greenButton, ]
         let colorsStackView = UIStackView(arrangedSubviews: buttonsColors)
         colorsStackView.distribution = .fillEqually
         
+        let deletesStackView = UIStackView(arrangedSubviews: [undoButton, clearButton])
+        deletesStackView.distribution = .fillEqually
+        
         let stackView = UIStackView(arrangedSubviews: [
-            undoButton,
-            clearButton,
+            deletesStackView,
             colorsStackView,
             slider,
             ])

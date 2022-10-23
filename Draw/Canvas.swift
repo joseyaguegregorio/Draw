@@ -35,6 +35,7 @@ class Canvas: UIView {
         
         
         lines.forEach { (line) in
+            context.setLineJoin(.round)
             context.setStrokeColor(line.color.cgColor)
             context.setLineWidth(CGFloat(line.strokeWidth))
             context.setLineCap(.round)
