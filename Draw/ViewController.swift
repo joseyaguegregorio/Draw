@@ -73,6 +73,13 @@ class ViewController: UIViewController {
         return button
     }()
     
+    let orangeButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.backgroundColor = .orange
+        button.addTarget(self, action: #selector(handleColorChange), for: .touchUpInside)
+        return button
+    }()
+    
     let pinkButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = .systemPink
@@ -126,7 +133,7 @@ class ViewController: UIViewController {
     }
 
     fileprivate func setupLayout() {
-        buttonsColors = [blackButton,yellowButton, pinkButton,purpleButton,redButton,brownButton, blueButton, greenButton, ]
+        buttonsColors = [blackButton,yellowButton, pinkButton,orangeButton, purpleButton,redButton,brownButton, blueButton, greenButton, ]
         let colorsStackView = UIStackView(arrangedSubviews: buttonsColors)
         colorsStackView.distribution = .fillEqually
         
