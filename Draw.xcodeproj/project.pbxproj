@@ -39,6 +39,7 @@
 		911756682904795700919DA2 /* Draw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Draw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		91175669290481B800919DA2 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		9117566B290481CE00919DA2 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		91A797D829053E76006C016E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +72,7 @@
 				91175664290476AB00919DA2 /* ViewController.swift */,
 				91175669290481B800919DA2 /* Line.swift */,
 				9117566B290481CE00919DA2 /* Canvas.swift */,
+				91A797D829053E76006C016E /* README.md */,
 			);
 			path = Draw;
 			sourceTree = "<group>";
